@@ -27,11 +27,11 @@ jobs:
       - name: Push Docker image to ACR
         run: docker push workshoptt.azurecr.io/myapp:${{ github.sha }}
 
-      - name: Deploy to Azure Web App
-        run: |
-          az webapp config container set \
-            --name mywebapp123 \
-            --resource-group myResourceGroup \
-            --docker-custom-image-name workshoptt.azurecr.io/myapp:${{ github.sha }} \
-            --docker-registry-server-url https://workshopTT.azurecr.io
+      # - name: Deploy to Azure Web App
+      #   run: |
+      #     az webapp config container set \
+      #       --name mywebapp123 \
+      #       --resource-group myResourceGroup \
+      #       --docker-custom-image-name workshoptt.azurecr.io/myapp:${{ github.sha }} \
+      #       --docker-registry-server-url https://workshopTT.azurecr.io
 
