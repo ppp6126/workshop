@@ -19,19 +19,19 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Azure ACR login
-        run: az acr login --name workshopTT
+        run: az acr login --name workshoptt
 
       - name: Build Docker image
-        run: docker build -t workshopTT.azurecr.io/myapp:${{ github.sha }} -f WebApplication1/Dockerfile .
+        run: docker build -t workshoptt.azurecr.io/myapp:${{ github.sha }} -f WebApplication1/Dockerfile .
 
       - name: Push Docker image to ACR
-        run: docker push workshopTT.azurecr.io/myapp:${{ github.sha }}
+        run: docker push workshoptt.azurecr.io/myapp:${{ github.sha }}
 
       - name: Deploy to Azure Web App
         run: |
           az webapp config container set \
             --name mywebapp123 \
             --resource-group myResourceGroup \
-            --docker-custom-image-name workshopTT.azurecr.io/myapp:${{ github.sha }} \
+            --docker-custom-image-name workshoptt.azurecr.io/myapp:${{ github.sha }} \
             --docker-registry-server-url https://workshopTT.azurecr.io
 
