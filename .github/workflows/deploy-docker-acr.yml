@@ -34,3 +34,4 @@ jobs:
             --resource-group myResourceGroup \
             --docker-custom-image-name workshopTT.azurecr.io/myapp:${{ github.sha }} \
             --docker-registry-server-url https://workshopTT.azurecr.io
+
