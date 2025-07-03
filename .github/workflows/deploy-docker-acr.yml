@@ -14,23 +14,23 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: workshopTT/Oh5ruMhlVZvnwX6N3stF3uvclsO3Eg4gayqHuo6q0q+ACRCChDJ7
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Azure ACR login
-        run: az acr login --name myacrregistry
+        run: az acr login --name workshopTT
 
       - name: Build Docker image
-        run: docker build -t myacrregistry.azurecr.io/myapp:${{ github.sha }} .
+        run: docker build -t workshopTT.azurecr.io/myapp:${{ github.sha }} .
 
       - name: Push Docker image to ACR
-        run: docker push myacrregistry.azurecr.io/myapp:${{ github.sha }}
+        run: docker push workshopTT.azurecr.io/myapp:${{ github.sha }}
 
       - name: Deploy to Azure Web App
         run: |
           az webapp config container set \
             --name mywebapp123 \
             --resource-group myResourceGroup \
-            --docker-custom-image-name myacrregistry.azurecr.io/myapp:${{ github.sha }} \
-            --docker-registry-server-url https://myacrregistry.azurecr.io
+            --docker-custom-image-name workshopTT.azurecr.io/myapp:${{ github.sha }} \
+            --docker-registry-server-url https://workshopTT.azurecr.io
