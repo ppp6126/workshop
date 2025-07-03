@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\workshop\\workshop\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "F:\\workshop\\workshop\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "F:\\workshop\\workshop\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "F:\\workshop\\workshop\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\workshop\\workshop\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "F:\\workshop\\workshop\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "F:\\workshop\\workshop\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "F:\\workshop\\workshop\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\aoo_z\\.nuget\\packages\\",
-        "outputPath": "F:\\workshop\\workshop\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "F:\\workshop\\workshop\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aoo_z\\AppData\\Roaming\\NuGet\\NuGet.Config"
