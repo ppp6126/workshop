@@ -1,0 +1,36 @@
+name: Build, Push and Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main # หรือ branch อื่นที่คุณต้องการ
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Azure ACR login
+        run: az acr login --name myacrregistry
+
+      - name: Build Docker image
+        run: docker build -t myacrregistry.azurecr.io/myapp:${{ github.sha }} .
+
+      - name: Push Docker image to ACR
+        run: docker push myacrregistry.azurecr.io/myapp:${{ github.sha }}
+
+      - name: Deploy to Azure Web App
+        run: |
+          az webapp config container set \
+            --name mywebapp123 \
+            --resource-group myResourceGroup \
+            --docker-custom-image-name myacrregistry.azurecr.io/myapp:${{ github.sha }} \
+            --docker-registry-server-url https://myacrregistry.azurecr.io
