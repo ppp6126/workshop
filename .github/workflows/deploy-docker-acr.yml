@@ -22,7 +22,7 @@ jobs:
         run: az acr login --name workshopTT
 
       - name: Build Docker image
-        run: docker build -t workshopTT.azurecr.io/myapp:${{ github.sha }} .
+        run: docker build -t workshopTT.azurecr.io/myapp:${{ github.sha }} -f WebApplication1/Dockerfile workshop/WebApplication1
 
       - name: Push Docker image to ACR
         run: docker push workshopTT.azurecr.io/myapp:${{ github.sha }}
